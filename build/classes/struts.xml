@@ -1,0 +1,29 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+    <!-- Login and Logout Actions -->
+        <action name="login" class="com.example.action.LoginAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+        <action name="logout" class="com.example.action.LogoutAction">
+            <result>/logout.jsp</result>
+        </action>
+    
+        <action name="listUsers" class="com.example.action.UserAction" method="listUsers">
+            <result name="success">/listUsers.jsp</result>
+        </action>
+
+        <action name="addUser" class="com.example.action.UserAction" method="addUser">
+            <result name="success" type="redirectAction">listUsers</result>
+        </action>
+
+        <action name="editUser" class="com.example.action.UserAction" method="editUser">
+            <result name="success" type="redirectAction">listUsers</result>
+        </action>
+
+        <action name="deleteUser" class="com.example.action.UserAction" method="deleteUser">
+            <result name="success" type="redirectAction">listUsers</result>
+        </action>
+    </package>
+</struts>
